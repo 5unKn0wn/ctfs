@@ -11,7 +11,7 @@ iv = "handsomeinitvect"
 with open("eggyolk", "rb") as f:
 	cipher_text = f.read()
 
-data = decrypt(cipher_text, key, iv).encode('hex')
+data = decrypt(cipher_text, key, iv)
 
 with open("decrypt.dex", "wb") as f:
 	f.write(data)
