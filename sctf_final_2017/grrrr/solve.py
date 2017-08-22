@@ -10,8 +10,8 @@ table = '_0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'
 flag = "SCTF{"
 flag_len = 26
 
-send_cmd("b *0x54c723")
-for i in range(len(flag), flag_len):
+send_cmd("b *0x54c723")	# grumpy_Xor
+for i in range(len(flag), flag_len):	# side channel attack
 	for j in table:
 		side = flag + j + '_' * (flag_len - len(flag) - 1) + '}'
 		send_cmd("r \"%s\"" % side)
