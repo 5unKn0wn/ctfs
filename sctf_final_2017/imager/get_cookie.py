@@ -17,6 +17,6 @@ def session_cookie_encoder(url):
         return "[Encoding error]{}".format(e)
 
 if len(sys.argv) == 2:
-	print session_cookie_encoder(sys.argv[0])
+	print session_cookie_encoder(sys.argv[1])
 else:
 	print session_cookie_encoder("file:///proc/self/cwd/flag")
