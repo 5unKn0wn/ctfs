@@ -1,2 +1,0 @@
-# ctfs
-ctfs write-up
