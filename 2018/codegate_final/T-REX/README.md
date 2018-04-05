@@ -1,1 +1,0 @@
-DregZ license code algorithm
