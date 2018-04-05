@@ -13,23 +13,23 @@
 
 바이너리를 분석하면
 
-![startup](file:///Users/5unKn0wn/Desktop/startup.png)
+![startup](https://github.com/5unKn0wn/ctfs/blob/master/2018/codegate_final/6051_Returns/images/startup.png)
 
 sub\_401D00함수가 실패했을 때 Startup failed라는 메시지를 띄우고 종료시킵니다.  
 뭔가 저 안에 중요한 루틴이 있을거 같네요.
 
-![header](file:///Users/5unKn0wn/Desktop/header.png)
+![header](https://github.com/5unKn0wn/ctfs/blob/master/2018/codegate_final/6051_Returns/images/header.png)
 
 내부로 들어가서 보면 sub\_401A00함수가 리턴한 v13변수의 첫 4바이트가 HSP3인지 검사합니다.  
 뭔가 HSP 스크립트가 정상적으로 복호화가 된건지 시그니처 체크를 하는 것 같은 냄새가 풍깁니다.
 
 디버깅을 해서 메모리를 추출해 보겠습니다.
 
-![debug](file:///Users/5unKn0wn/Desktop/debug.png)
+![debug](https://github.com/5unKn0wn/ctfs/blob/master/2018/codegate_final/6051_Returns/images/debug.png)
 
 저 메모리 부분을 가져와서 start.ax로 저장한 후 다시 deHSP120.exe로 디컴파일 해보면 이번엔 정상적으로 디컴파일이 되어 start.hsp를 추출할 수 있습니다.
 
-![extract](file:///Users/5unKn0wn/Desktop/extract.png)
+![extract](https://github.com/5unKn0wn/ctfs/blob/master/2018/codegate_final/6051_Returns/images/extract.png)
 
 (바이너리에서 직접 복호화 키를 구하여 start.ax 및 리소스를 모두 추출하는 스크립트는 extract_hsp.py에 짜두었습니다.)
 
@@ -318,6 +318,6 @@ print ''.join(chr(i) for i in enc)
 
 이렇게 나타낼 수 있고 마지막 연산 부분에서 2~3가지 정도의 중복 답이 나올 수 있기에 사용자에게 어떤 값으로 연산할지를 물어보는 부분이 있습니다.
 
-![flag](file:///Users/5unKn0wn/Desktop/flag.png)
+![flag](https://github.com/5unKn0wn/ctfs/blob/master/2018/codegate_final/6051_Returns/images/flag.png)
 
 > FLAG{C0ngr4tz,\_It\_1s\_s0\_D3l1c10us\_H0t\_S0uP\_:)}
