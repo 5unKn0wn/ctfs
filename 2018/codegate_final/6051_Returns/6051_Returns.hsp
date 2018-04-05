@@ -1,0 +1,91 @@
+// FLAG{C0ngr4tz,_It_1s_s0_D3l1c10us_H0t_S0uP_:)}
+#include "kernel32.as"
+
+title "6051 Returns"
+screen 0, 552, 60
+cls 4
+color 255, 255, 255
+font "Arial", 19, 16
+
+is_debugged = IsDebuggerPresent()
+if is_debugged {
+	inp = "DEBUGGING DETECTED"
+}
+else {
+	inp = ""
+}
+pos 30, 20 : mes "input : "
+pos 87, 20 : input inp, 345, 20
+if is_debugged == 0 {
+	pos 445, 20 : button "check", *check
+}
+stop
+
+*check
+	randomize 6051
+	dim inp_int, int_len
+	inv_s = 82, 9, 106, 213, 48, 54, 165, 56, 191, 64, 163, 158, 129, 243, 215, 251, 124, 227, 57, 130, 155, 47, 255, 135, 52, 142, 67, 68, 196, 222, 233, 203, 84, 123, 148, 50, 166, 194, 35, 61, 238, 76, 149, 11, 66, 250, 195, 78, 8, 46, 161, 102, 40, 217, 36, 178, 118, 91, 162, 73, 109, 139, 209, 37, 114, 248, 246, 100, 134, 104, 152, 22, 212, 164, 92, 204, 93, 101, 182, 146, 108, 112, 72, 80, 253, 237, 185, 218, 94, 21, 70, 87, 167, 141, 157, 132, 144, 216, 171, 0, 140, 188, 211, 10, 247, 228, 88, 5, 184, 179, 69, 6, 208, 44, 30, 143, 202, 63, 15, 2, 193, 175, 189, 3, 1, 19, 138, 107, 58, 145, 17, 65, 79, 103, 220, 234, 151, 242, 207, 206, 240, 180, 230, 115, 150, 172, 116, 34, 231, 173, 53, 133, 226, 249, 55, 232, 28, 117, 223, 110, 71, 241, 26, 113, 29, 41, 197, 137, 111, 183, 98, 14, 170, 24, 190, 27, 252, 86, 62, 75, 198, 210, 121, 32, 154, 219, 192, 254, 120, 205, 90, 244, 31, 221, 168, 51, 136, 7, 199, 49, 177, 18, 16, 89, 39, 128, 236, 95, 96, 81, 127, 169, 25, 181, 74, 13, 45, 229, 122, 159, 147, 201, 156, 239, 160, 224, 59, 77, 174, 42, 245, 176, 200, 235, 187, 60, 131, 83, 153, 97, 23, 43, 4, 126, 186, 119, 214, 38, 225, 105, 20, 99, 85, 33, 12, 125
+	ans = 227, 88, 27, 251, 109, 62, 47, 28, 51, 100, 65, 206, 242, 129, 245, 198, 199, 238, 36, 137, 22, 141, 90, 135, 183, 247, 42, 207, 65, 242, 147, 151, 159, 126, 241, 197, 178, 121, 168, 33, 5, 197, 43, 67, 118, 77
+	inp_len = strlen(inp)
+	diff = 0
+	res = 0
+	is_correct = 1
+
+	repeat inp_len
+		inp_int(cnt) = peek(inp, cnt)
+	loop
+
+	for i, 0, inp_len, 1
+		diff = 0
+		for j, 0, 8, 1
+			if ((inp_int.i >> j) & 1) != ((inp_int.((i + 1) \ inp_len) >> (7 - j)) & 1): diff++
+			next
+		inp_int.i = ((inp_int.i << (diff & 7)) & 0xff) | ((inp_int.i >> ((8 - (diff & 7)))) & 0xff)
+		next
+
+	for i, 0, inp_len, 1
+		res = 0
+		for j, 0, inp_len, 1
+			res = (res + (inp_int.j ^ inv_s.(((-inp_int.j) - 1) & 0xff)) - inp_int.((j + 1) \ inp_len)) & 0xff
+			res = (res >> (j & 7)) | ((res << (8 - (j & 7))) & 0xff)
+			res = (((res >> (inp_int.j & 7)) & 0xff) | (res << ((8 - (inp_int.j & 7))) & 0xff))
+			inp_int.((j + 1) \ inp_len) = res
+			next
+
+		for j, 0, inp_len, 1
+			inp_int.j = (((inp_int.j & 170) >> 1) | (((inp_int.j & 85) << 1) & 0xff))	// swap adjacent bits
+			next
+
+		for j, 0, inp_len - 1, 1
+			if (inp_int.j != inp_int.(j + 1)) {	// swap value
+				inp_int.j = inp_int.j ^ inp_int.(j + 1)
+				inp_int.(j + 1) = inp_int.j ^ inp_int.(j + 1)
+				inp_int.j = inp_int.j ^ inp_int.(j + 1)
+			}
+			next
+		next
+
+	for i, 0, inp_len, 1
+		randvalue = rnd(256)
+		inp_int.i = ((inp_int.i | randvalue) & ((0x100 + (-(inp_int.i & randvalue) - 1)) & 0xff))	// same as xor
+		next
+
+	if length(ans) != length(inp_int) {
+		is_correct = 0
+	}
+	else {
+		repeat length(ans)
+			if inp_int.cnt != ans.cnt {
+				is_correct = 0
+				break
+			}
+		loop
+	}
+	
+	if is_correct == 1 {
+		dialog "correct", 4, "correct"
+	}
+	else {
+		dialog "wrong", 1, "wrong"
+	}
+	end
