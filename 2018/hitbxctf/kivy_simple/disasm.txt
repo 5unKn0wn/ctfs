@@ -1,0 +1,328 @@
+  3           0 LOAD_FAST                0 (self)
+              3 LOAD_ATTR                0 (flag)
+              6 LOAD_ATTR                1 (text)
+              9 STORE_FAST               1 (s)
+
+  4          12 LOAD_GLOBAL              2 (len)
+             15 LOAD_FAST                1 (s)
+             18 CALL_FUNCTION            1
+             21 LOAD_CONST               1 (31)
+             24 COMPARE_OP               3 (!=)
+             27 POP_JUMP_IF_FALSE       34
+             30 LOAD_GLOBAL              3 (False)
+             33 RETURN_VALUE        
+
+  5     >>   34 LOAD_FAST                1 (s)
+             37 LOAD_CONST               2 (17)
+             40 BINARY_SUBSCR       
+             41 LOAD_CONST               3 ('7')
+             44 COMPARE_OP               3 (!=)
+             47 POP_JUMP_IF_FALSE       54
+
+  6          50 LOAD_GLOBAL              3 (False)
+             53 RETURN_VALUE        
+
+  7     >>   54 LOAD_FAST                1 (s)
+             57 LOAD_CONST               4 (15)
+             60 BINARY_SUBSCR       
+             61 LOAD_CONST               5 ('%')
+             64 COMPARE_OP               3 (!=)
+             67 POP_JUMP_IF_FALSE       74
+
+  8          70 LOAD_GLOBAL              3 (False)
+             73 RETURN_VALUE        
+
+  9     >>   74 LOAD_FAST                1 (s)
+             77 LOAD_CONST               6 (11)
+             80 BINARY_SUBSCR       
+             81 LOAD_CONST               7 ('S')
+             84 COMPARE_OP               3 (!=)
+             87 POP_JUMP_IF_FALSE       94
+
+ 10          90 LOAD_GLOBAL              3 (False)
+             93 RETURN_VALUE        
+
+ 11     >>   94 LOAD_FAST                1 (s)
+             97 LOAD_CONST               8 (3)
+            100 BINARY_SUBSCR       
+            101 LOAD_CONST               9 ('B')
+            104 COMPARE_OP               3 (!=)
+            107 POP_JUMP_IF_FALSE      114
+
+ 12         110 LOAD_GLOBAL              3 (False)
+            113 RETURN_VALUE        
+
+ 13     >>  114 LOAD_FAST                1 (s)
+            117 LOAD_CONST              10 (22)
+            120 BINARY_SUBSCR       
+            121 LOAD_CONST              11 ('_')
+            124 COMPARE_OP               3 (!=)
+            127 POP_JUMP_IF_FALSE      134
+
+ 14         130 LOAD_GLOBAL              3 (False)
+            133 RETURN_VALUE        
+
+ 15     >>  134 LOAD_FAST                1 (s)
+            137 LOAD_CONST              12 (2)
+            140 BINARY_SUBSCR       
+            141 LOAD_CONST              13 ('T')
+            144 COMPARE_OP               3 (!=)
+            147 POP_JUMP_IF_FALSE      154
+
+ 16         150 LOAD_GLOBAL              3 (False)
+            153 RETURN_VALUE        
+
+ 17     >>  154 LOAD_FAST                1 (s)
+            157 LOAD_CONST              14 (27)
+            160 BINARY_SUBSCR       
+            161 LOAD_CONST              15 ('O')
+            164 COMPARE_OP               3 (!=)
+            167 POP_JUMP_IF_FALSE      174
+
+ 18         170 LOAD_GLOBAL              3 (False)
+            173 RETURN_VALUE        
+
+ 19     >>  174 LOAD_FAST                1 (s)
+            177 LOAD_CONST              16 (6)
+            180 BINARY_SUBSCR       
+            181 LOAD_CONST              17 ('!')
+            184 COMPARE_OP               3 (!=)
+            187 POP_JUMP_IF_FALSE      194
+
+ 20         190 LOAD_GLOBAL              3 (False)
+            193 RETURN_VALUE        
+
+ 21     >>  194 LOAD_FAST                1 (s)
+            197 LOAD_CONST              18 (20)
+            200 BINARY_SUBSCR       
+            201 LOAD_CONST              19 ('$')
+            204 COMPARE_OP               3 (!=)
+            207 POP_JUMP_IF_FALSE      214
+
+ 22         210 LOAD_GLOBAL              3 (False)
+            213 RETURN_VALUE        
+
+ 23     >>  214 LOAD_FAST                1 (s)
+            217 LOAD_CONST              20 (16)
+            220 BINARY_SUBSCR       
+            221 LOAD_CONST              21 ('r')
+            224 COMPARE_OP               3 (!=)
+            227 POP_JUMP_IF_FALSE      234
+
+ 24         230 LOAD_GLOBAL              3 (False)
+            233 RETURN_VALUE        
+
+ 25     >>  234 LOAD_FAST                1 (s)
+            237 LOAD_CONST              22 (4)
+            240 BINARY_SUBSCR       
+            241 LOAD_CONST              23 ('{')
+            244 COMPARE_OP               3 (!=)
+            247 POP_JUMP_IF_FALSE      254
+
+ 26         250 LOAD_GLOBAL              3 (False)
+            253 RETURN_VALUE        
+
+ 27     >>  254 LOAD_FAST                1 (s)
+            257 LOAD_CONST              24 (23)
+            260 BINARY_SUBSCR       
+            261 LOAD_CONST              25 ('p')
+            264 COMPARE_OP               3 (!=)
+            267 POP_JUMP_IF_FALSE      274
+
+ 28         270 LOAD_GLOBAL              3 (False)
+            273 RETURN_VALUE        
+
+ 29     >>  274 LOAD_FAST                1 (s)
+            277 LOAD_CONST              26 (25)
+            280 BINARY_SUBSCR       
+            281 LOAD_CONST               3 ('7')
+            284 COMPARE_OP               3 (!=)
+            287 POP_JUMP_IF_FALSE      294
+
+ 30         290 LOAD_GLOBAL              3 (False)
+            293 RETURN_VALUE        
+
+ 31     >>  294 LOAD_FAST                1 (s)
+            297 LOAD_CONST              27 (0)
+            300 BINARY_SUBSCR       
+            301 LOAD_CONST              28 ('H')
+            304 COMPARE_OP               3 (!=)
+            307 POP_JUMP_IF_FALSE      314
+
+ 32         310 LOAD_GLOBAL              3 (False)
+            313 RETURN_VALUE        
+
+ 33     >>  314 LOAD_FAST                1 (s)
+            317 LOAD_CONST              29 (18)
+            320 BINARY_SUBSCR       
+            321 LOAD_CONST              11 ('_')
+            324 COMPARE_OP               3 (!=)
+            327 POP_JUMP_IF_FALSE      334
+
+ 34         330 LOAD_GLOBAL              3 (False)
+            333 RETURN_VALUE        
+
+ 35     >>  334 LOAD_FAST                1 (s)
+            337 LOAD_CONST              30 (29)
+            340 BINARY_SUBSCR       
+            341 LOAD_CONST              17 ('!')
+            344 COMPARE_OP               3 (!=)
+            347 POP_JUMP_IF_FALSE      354
+
+ 36         350 LOAD_GLOBAL              3 (False)
+            353 RETURN_VALUE        
+
+ 37     >>  354 LOAD_FAST                1 (s)
+            357 LOAD_CONST              31 (10)
+            360 BINARY_SUBSCR       
+            361 LOAD_CONST              32 ('1')
+            364 COMPARE_OP               3 (!=)
+            367 POP_JUMP_IF_FALSE      374
+
+ 38         370 LOAD_GLOBAL              3 (False)
+            373 RETURN_VALUE        
+
+ 39     >>  374 LOAD_FAST                1 (s)
+            377 LOAD_CONST              33 (14)
+            380 BINARY_SUBSCR       
+            381 LOAD_CONST              28 ('H')
+            384 COMPARE_OP               3 (!=)
+            387 POP_JUMP_IF_FALSE      394
+
+ 40         390 LOAD_GLOBAL              3 (False)
+            393 RETURN_VALUE        
+
+ 41     >>  394 LOAD_FAST                1 (s)
+            397 LOAD_CONST              34 (13)
+            400 BINARY_SUBSCR       
+            401 LOAD_CONST              35 ('&')
+            404 COMPARE_OP               3 (!=)
+            407 POP_JUMP_IF_FALSE      414
+
+ 42         410 LOAD_GLOBAL              3 (False)
+            413 RETURN_VALUE        
+
+ 43     >>  414 LOAD_FAST                1 (s)
+            417 LOAD_CONST              36 (26)
+            420 BINARY_SUBSCR       
+            421 LOAD_CONST              37 ('#')
+            424 COMPARE_OP               3 (!=)
+            427 POP_JUMP_IF_FALSE      434
+
+ 44         430 LOAD_GLOBAL              3 (False)
+            433 RETURN_VALUE        
+
+ 45     >>  434 LOAD_FAST                1 (s)
+            437 LOAD_CONST              38 (1)
+            440 BINARY_SUBSCR       
+            441 LOAD_CONST              39 ('I')
+            444 COMPARE_OP               3 (!=)
+            447 POP_JUMP_IF_FALSE      454
+
+ 46         450 LOAD_GLOBAL              3 (False)
+            453 RETURN_VALUE        
+
+ 47     >>  454 LOAD_FAST                1 (s)
+            457 LOAD_CONST              40 (7)
+            460 BINARY_SUBSCR       
+            461 LOAD_CONST              41 ('F')
+            464 COMPARE_OP               3 (!=)
+            467 POP_JUMP_IF_FALSE      474
+
+ 48         470 LOAD_GLOBAL              3 (False)
+            473 RETURN_VALUE        
+
+ 49     >>  474 LOAD_FAST                1 (s)
+            477 LOAD_CONST              42 (30)
+            480 BINARY_SUBSCR       
+            481 LOAD_CONST              43 ('}')
+            484 COMPARE_OP               3 (!=)
+            487 POP_JUMP_IF_FALSE      494
+
+ 50         490 LOAD_GLOBAL              3 (False)
+            493 RETURN_VALUE        
+
+ 51     >>  494 LOAD_FAST                1 (s)
+            497 LOAD_CONST              44 (19)
+            500 BINARY_SUBSCR       
+            501 LOAD_CONST              45 ('v')
+            504 COMPARE_OP               3 (!=)
+            507 POP_JUMP_IF_FALSE      514
+
+ 52         510 LOAD_GLOBAL              3 (False)
+            513 RETURN_VALUE        
+
+ 53     >>  514 LOAD_FAST                1 (s)
+            517 LOAD_CONST              46 (12)
+            520 BINARY_SUBSCR       
+            521 LOAD_CONST              11 ('_')
+            524 COMPARE_OP               3 (!=)
+            527 POP_JUMP_IF_FALSE      534
+
+ 54         530 LOAD_GLOBAL              3 (False)
+            533 RETURN_VALUE        
+
+ 55     >>  534 LOAD_FAST                1 (s)
+            537 LOAD_CONST              47 (9)
+            540 BINARY_SUBSCR       
+            541 LOAD_CONST              11 ('_')
+            544 COMPARE_OP               3 (!=)
+            547 POP_JUMP_IF_FALSE      554
+
+ 56         550 LOAD_GLOBAL              3 (False)
+            553 RETURN_VALUE        
+
+ 57     >>  554 LOAD_FAST                1 (s)
+            557 LOAD_CONST              48 (24)
+            560 BINARY_SUBSCR       
+            561 LOAD_CONST              49 ('Y')
+            564 COMPARE_OP               3 (!=)
+            567 POP_JUMP_IF_FALSE      574
+
+ 58         570 LOAD_GLOBAL              3 (False)
+            573 RETURN_VALUE        
+
+ 59     >>  574 LOAD_FAST                1 (s)
+            577 LOAD_CONST              50 (5)
+            580 BINARY_SUBSCR       
+            581 LOAD_CONST              32 ('1')
+            584 COMPARE_OP               3 (!=)
+            587 POP_JUMP_IF_FALSE      594
+
+ 60         590 LOAD_GLOBAL              3 (False)
+            593 RETURN_VALUE        
+
+ 61     >>  594 LOAD_FAST                1 (s)
+            597 LOAD_CONST              51 (28)
+            600 BINARY_SUBSCR       
+            601 LOAD_CONST              52 ('N')
+            604 COMPARE_OP               3 (!=)
+            607 POP_JUMP_IF_FALSE      614
+
+ 62         610 LOAD_GLOBAL              3 (False)
+            613 RETURN_VALUE        
+
+ 63     >>  614 LOAD_FAST                1 (s)
+            617 LOAD_CONST              53 (21)
+            620 BINARY_SUBSCR       
+            621 LOAD_CONST              54 ('3')
+            624 COMPARE_OP               3 (!=)
+            627 POP_JUMP_IF_FALSE      634
+
+ 64         630 LOAD_GLOBAL              3 (False)
+            633 RETURN_VALUE        
+
+ 65     >>  634 LOAD_FAST                1 (s)
+            637 LOAD_CONST              55 (8)
+            640 BINARY_SUBSCR       
+            641 LOAD_CONST              54 ('3')
+            644 COMPARE_OP               3 (!=)
+            647 POP_JUMP_IF_FALSE      654
+
+ 66         650 LOAD_GLOBAL              3 (False)
+            653 RETURN_VALUE        
+
+ 68     >>  654 LOAD_GLOBAL              4 (True)
+            657 RETURN_VALUE        
+            658 LOAD_CONST               0 (None)
+            661 RETURN_VALUE 
