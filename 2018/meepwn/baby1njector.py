@@ -1,0 +1,104 @@
+table = [0x35, 0x2E, 0x37, 0x3B, 0x40, 0x16, 0x1E, 0x04, 0x14, 0x0F, 0x1F, 0x29, 0x33, 0x44, 0x1B, 0x0E, 0x22, 0x42, 0x15, 0x30, 0x21, 0x46, 0x03, 0x11, 0x23, 0x19, 0x0C, 0x31, 0x2C, 0x3F, 0x38, 0x3C, 0x01, 0x0B, 0x13, 0x0A, 0x32, 0x3E, 0x39, 0x34, 0x24, 0x08, 0x2A, 0x02, 0x06, 0x1A, 0x2D, 0x28, 0x47, 0x45, 0x2F, 0x3D, 0x18, 0x09, 0x27, 0x20, 0x41, 0x05, 0x00, 0x3A, 0x0D, 0x1C, 0x17, 0x43, 0x12, 0x36, 0x1D, 0x10, 0x2B, 0x26, 0x07, 0x25]
+enc = [0x5e, 0xa, 0x68, 0x86, 0x1d, 0xf1, 0x85, 0x91, 0xdb, 0xb0, 0x4c, 0xac, 0xd9, 0xb9, 0x8e, 0xf6, 0xaa, 0xb4, 0x40, 0x74, 0x9b, 0x25, 0x39, 0x75, 0x62, 0x25, 0x8a, 0x5e, 0xd2, 0x7, 0x27, 0x9e, 0x85, 0xeb, 0x4c, 0xc8, 0x8f, 0xd2, 0xe8, 0xaf, 0x9d, 0x1a, 0x76, 0x72, 0x8a, 0xda, 0x98, 0x4b, 0x27, 0x3f, 0x43, 0x61, 0xfb, 0xea, 0xc6, 0x34, 0xeb, 0xff, 0xc9, 0xe2, 0xa6, 0xde, 0xcd, 0x3b, 0xde, 0x4a, 0x23, 0x53, 0x9d, 0xa5, 0x9b, 0x5e]
+inp = [ord(i) for i in "MeePwnCTF{"] + [0 for i in range(26)]
+injector_pid = 0
+svchost_pid = 0
+buf1 = []
+buf2 = []
+
+for i in range(72):
+	a = table[i] / 2
+	if i > 35:
+		if table[i] & 1:
+			buf2.append(inp[a] >> 4)
+		else:
+			buf2.append(inp[a] & 0xf)
+	else:
+		if table[i] & 1:
+			buf1.append(inp[a] >> 4)
+		else:
+			buf1.append(inp[a] & 0xf)
+
+for a in range(65536):
+	pid = str(a)
+	sbox = []
+	res1 = []
+	res2 = []
+	idx = 0
+	for i in range(0x100):
+		sbox.append(i)
+	for i in range(0x100):
+		idx = sbox[i] + idx + ord(pid[i % len(pid)])
+		idx &= 0xff
+		sbox[i], sbox[idx] = sbox[idx], sbox[i]
+	idx1 = 0
+	idx2 = 0
+	for i in range(36):
+		idx1 += 1
+		idx2 = sbox[idx1] + idx2
+		idx2 &= 0xff
+		sbox[idx1], sbox[idx2] = sbox[idx2], sbox[idx1]
+		res1.append(sbox[(sbox[idx1] + sbox[idx2]) & 0xff] ^ buf1[i])
+		res2.append(sbox[(sbox[idx1] + sbox[idx2]) & 0xff] ^ buf2[i])
+	if res1[32] == enc[32] and res1[22] == enc[22] and res1[7] == enc[7]:	# 28009
+		# print "injector pid :", a
+		injector_pid = str(a)
+		if svchost_pid:
+			break
+	if res2[22] == enc[36 + 22] and res2[7] == enc[36 + 7] and res2[21] == enc[36 + 21]:
+		# print "svchost pid :", a
+		svchost_pid = str(a)
+		if injector_pid:
+			break
+
+sbox = []
+idx = 0
+res1 = []
+res2 = []
+flag = [0 for i in range(72)]
+for i in range(0x100):
+	sbox.append(i)
+for i in range(0x100):
+	idx = sbox[i] + idx + ord(injector_pid[i % len(injector_pid)])
+	idx &= 0xff
+	sbox[i], sbox[idx] = sbox[idx], sbox[i]
+idx1 = 0
+idx2 = 0
+for i in range(36):
+	idx1 += 1
+	idx2 = sbox[idx1] + idx2
+	idx2 &= 0xff
+	sbox[idx1], sbox[idx2] = sbox[idx2], sbox[idx1]
+	res1.append(sbox[(sbox[idx1] + sbox[idx2]) & 0xff] ^ enc[i])
+
+sbox = []
+idx = 0
+for i in range(0x100):
+	sbox.append(i)
+for i in range(0x100):
+	idx = sbox[i] + idx + ord(svchost_pid[i % len(svchost_pid)])
+	idx &= 0xff
+	sbox[i], sbox[idx] = sbox[idx], sbox[i]
+idx1 = 0
+idx2 = 0
+for i in range(36):
+	idx1 += 1
+	idx2 = sbox[idx1] + idx2
+	idx2 &= 0xff
+	sbox[idx1], sbox[idx2] = sbox[idx2], sbox[idx1]
+	res2.append(sbox[(sbox[idx1] + sbox[idx2]) & 0xff] ^ enc[36 + i])
+
+for i in range(72):
+	a = table[i] / 2
+	if i > 35:
+		if table[i] & 1:
+			flag[a] |= (res2[i % 36] << 4)
+		else:
+			flag[a] |= res2[i % 36]
+	else:
+		if table[i] & 1:
+			flag[a] |= (res1[i] << 4)
+		else:
+			flag[a] |= res1[i]
+
+print ''.join(chr(i) for i in flag).rstrip('\x00')
