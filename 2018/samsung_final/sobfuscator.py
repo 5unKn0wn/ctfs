@@ -1,6 +1,5 @@
 # gdb -q smachine -x sobfuscator.py
 import gdb
-import os
 
 script = """
 set $base=0x0000555555554000
@@ -32,4 +31,3 @@ for i in range(32):
         print(''.join(chr(i) for i in flag))
 
 print("flag : " + ''.join(chr(i) for i in flag))
-os.system("rm gdbscript peda-session-smachine.txt")

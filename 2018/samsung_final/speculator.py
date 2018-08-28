@@ -15,7 +15,6 @@ def enc(inp):
 		_sum = ((_sum << 3) | (_sum >> 0xd)) & 0xffff
 		_sum ^= (inp >> 16)
 		inp = ((inp & 0xffff) << 16) | _sum
-		print hex(inp)
 	return inp
 
 def dec(inp):
